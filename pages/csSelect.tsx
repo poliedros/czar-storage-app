@@ -1,3 +1,5 @@
+import NavMenu from './csNavMenu';
+
 import Container from 'react-bootstrap/Container';
 import Accordion from 'react-bootstrap/Accordion';
 import InputGroup from 'react-bootstrap/InputGroup';
@@ -129,6 +131,7 @@ function csSelect() {
     }, []); */
 
     return <>
+        <NavMenu />
         <Container className="mt-6 mb-6" /* style={{ marginTop: "1.5rem", marginBottom: "1.5rem" }} */>
             <div className="text-left" /* style={{ textAlign: "left" }} */>
                 <Button className="mb-4" /* style={{ marginBottom: "1rem" }} */ onClick={() => { /* alert("CARA"); orderRemoveAllProducts(); alert(JSON.stringify(data)); */ /* navigate("/" + data.urlName); */ }}>Retornar ao Iní­cio</Button>

@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* my CSS */
+
+.dropdown-item-text-no-content:hover {
+    background-color: white !important;
+}
+
+.dropdown-item-text-no-content:active {
+    color: black !important;
+}
+
+.dropdown-toggle-image::after {
+    content: none !important;
+}
+
+.dropdown-toggle-image {
+    box-shadow: none !important;
+}
+
+.dropdown-toggle-image-small::after {
+    content: none !important;
+}
