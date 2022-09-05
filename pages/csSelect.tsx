@@ -1,3 +1,7 @@
+import useSWR from 'swr';
+
+import { useRouter } from 'next/router';
+
 import NavMenu from './csNavMenu';
 
 import Container from 'react-bootstrap/Container';
@@ -19,10 +23,23 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import Overlay from 'react-bootstrap/Overlay';
 
 import { Data, Product } from './interfaces/Interfaces';
+import { StorageDTO } from './api/storage';
 
-interface FdPizzaBasicSelectProps { data: Data }
+//interface FdPizzaBasicSelectProps { data: Data }
 
-function csSelect() {
+function CsSelect(dataProps: string) {
+
+    const object = JSON.parse(dataProps);
+    console.log(object);
+
+    const router = useRouter();
+    const data = router.query;
+
+    const fetcher = (url: string) => fetch(url).then((res) => res.json());
+    const { data: storage, error } = useSWR<StorageDTO[]>('/api/storage', fetcher);
+
+    if (error) return <div>failed to load</div>;
+    if (!storage) return <div>loading...</div>;
 
     /* let navigate = useNavigate();
 
@@ -155,7 +172,7 @@ function csSelect() {
                         <Card.Body>
                             <div className="text-right" /* style={{ textAlign: "right" }} */>
                                 { /* products.length > 1 ? */ true ?
-                                    <Button variant="danger" /* onClick={() => { orderRemoveProduct() }} */>Apagar - { /* products[index].title */ }</Button>
+                                    <Button variant="danger" /* onClick={() => { orderRemoveProduct() }} */>Apagar - {storage[0].city} { /* products[index].title */ }</Button>
                                     :
                                     <Button /* onClick={() => navigate("/" + props.data.urlName)} */>Retornar ao Iní­cio</Button>
                                 }
@@ -480,4 +497,4 @@ function csSelect() {
     </>
 }
 
-export default csSelect
+export default CsSelect
