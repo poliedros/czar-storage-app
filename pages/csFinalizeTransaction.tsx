@@ -1,5 +1,3 @@
-import NavMenu from './csNavMenu';
-
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
@@ -52,7 +50,6 @@ function csFinalizeTransaction() {
     let finalPrice = 0; */
 
     return <>
-        <NavMenu />
         <Container className="mt-6" /* style={{ marginTop: "1.5rem" }} */>
             <div className="text-left" /* style={{ textAlign: "left" }} */>
                 <Button variant="primary" className="mb-4" /* style={{ marginBottom: "1rem" }} */ onClick={() => {} /* navigate("/cartshopping", { state: data }) */ }>Voltar</Button>
